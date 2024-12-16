@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { MapsModule } from './maps/maps.module';
 import { ConfigModule } from '@nestjs/config';
 import { RoutesModule } from './routes/routes.module';
+import { PrismaService } from './prisma/prisma.service';
+import { PrismaModule } from './prisma/prisma.module';
 
 @Module({
   imports: [
@@ -12,8 +14,9 @@ import { RoutesModule } from './routes/routes.module';
     }),
     MapsModule,
     RoutesModule,
+    PrismaModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PrismaService],
 })
 export class AppModule {}
